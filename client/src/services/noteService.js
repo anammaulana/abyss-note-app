@@ -3,20 +3,26 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5000/api/notes';
 
 export const getNotes = async () => {
-  try {
-    const response = await axios.get(API_URL);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching notes:', error);
-    return [];
-  }
+  const res = await axios.get(API_URL);
+  return res.data;
+};
+
+export const getNoteById = async (id) => {
+  const res = await axios.get(`${API_URL}/${id}`);
+  return res.data;
 };
 
 export const addNote = async (note) => {
-  try {
-    const response = await axios.post(API_URL, note);
-    return response.data;
-  } catch (error) {
-    console.error('Error adding note:', error);
-  }
+  const res = await axios.post(API_URL, note);
+  return res.data;
+};
+
+export const updateNote = async (id, note) => {
+  const res = await axios.put(`${API_URL}/${id}`, note);
+  return res.data;
+};
+
+export const deleteNote = async (id) => {
+  const res = await axios.delete(`${API_URL}/${id}`);
+  return res.data;
 };

@@ -10,6 +10,7 @@ app.use(express.json()); // Untuk handle JSON requests
 const notesRouter = require('./routes/noteRoute'); // Import routes
 app.use('/api/notes', notesRouter); // API route untuk notes
 
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
